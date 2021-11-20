@@ -268,7 +268,6 @@ If you choose to deploy the site to [Heroku](https://www.heroku.com/) following 
 
 This procedure requires that you have successfully [configured your project in a Gitpod workspace](local-gitpod-deployment) as directed.
 
-1. 
 
 2. In the terminal, type ``` python3 app.py > Procfile ``` . This will create a _Procfile_, which tells Heroku which file to run when the site is accessed.
 
