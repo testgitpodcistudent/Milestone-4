@@ -175,7 +175,7 @@ The website's payment system is built using [Stripe](https://stripe.com/en-ie).
 
 # Deployment 
 
-## GitPod (Local) Deployment
+## Local GitPod Deployment
 
 The following steps will allow you to deploy the project 'locally' in the cloud-based IDE, Gitpod.
 
@@ -250,10 +250,11 @@ Return to your *.env* file, and replace ```your-stripe-wh-secret``` with this ne
 
 At this point, the basic functionality of the site as a guest user is complete. The guest user can browse the locally deployed version of the site, add products to their cart, and complete the checkout process.
     **Note**: As your Stripe account is set by default to run in *Test mode*, you can use the following *test mode* credit card details to complete the checkout process.   
-    > Card Number: 4242 4242 4242 4242  
-    > Expiry Date: 0424     
-    > CVC: 242  
-    > ZIP: 42424    
+
+     Card Number: 4242 4242 4242 4242  
+     Expiry Date: 0424     
+     CVC: 242  
+     ZIP: 42424    
 
 **Note:** When ```DEVELOPMENT=True``` is in our *.env* file, e-mails (such as registration and order confirmation e-mails) will be printed to the Gitpod terminal.   
 If you choose to deploy the site to [Heroku](https://www.heroku.com/) following the procedure below, steps are listed which will instruct you on how to enable emails to be sent from a live Gmail account.
@@ -263,13 +264,20 @@ If you choose to deploy the site to [Heroku](https://www.heroku.com/) following 
 
 <hr>
 
-## Heroku
+## GitHub Push, Heroku (Web) Deployment
 
-1. In the GitPod terminal, type ``` pip3 freeze -- local > requirements.txt `` . 
+This procedure requires that you have successfully [configured your project in a Gitpod workspace](local-gitpod-deployment) as directed.
+
+1. 
+
 2. In the terminal, type ``` python3 app.py > Procfile ``` . This will create a _Procfile_, which tells Heroku which file to run when the site is accessed.
+
 3. In the _Deploy_ tab on Heroku, click "Connect to GitHub" and select the relevant repository. Click "Connect".
+
 4. Go to the _Settings_ page in Heroku and click on "Config Vars". Click on "Reveal Config Vars".
+
     - Enter the _IP, SECRET_KEY, MONGO_URI,_ and _MONGO_DBNAME_ as contained in your _env.py_ file.
+
 5. Go to the _Deploy_ tab in Heroku, scroll down and click "Enable Automatic Deploys". Click "Deploy Branch".
 
 Once the app is deployed, click "Open App" in Heroku on the project page. The project should be successfully deployed and will update automatically when new GitHub commits are made.
