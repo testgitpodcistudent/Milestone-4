@@ -20,15 +20,31 @@
 
         <div class="row">
             <div class="col-12 col-lg-6 ml-auto mr-auto">
-                <form method="POST" action="{% url 'create_post' %}" class="form mb-2" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'edit_post' post.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form | crispy }}
+                    {% for field in form %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
                     <div class="text-right text-center">
                         <a class="btn btn-danger rounded-0 w-25" href="{% url 'view_blog' %}"><i class="far fa-window-close"></i> Cancel</a>
-                        <button class="btn btn-info rounded-0 w-25" type="submit">Post <i class="fas fa-pen-square"></i></button>
+                        <button class="btn btn-info rounded-0 w-25" type="submit">Save Edit <i class="fas fa-pen-square"></i></button>
                     </div>
                 </form>
             </div>            
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
 {% endblock %}
