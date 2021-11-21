@@ -17,11 +17,11 @@
     {% if blog_posts %}
     {% for post in blog_posts %}
     <div class="box-element pt-3 pb-3 text-center">
-        <div class="row ml-5 mt-2">
-            <h4 class="ml-3">{{ post.title }}</h4>
+        <div class="row mt-2">
+            <a href="{% url 'post_page' post.id %}"><h4 class="ml-auto mr-auto">{{ post.title }}</h4></a>
         </div>
-        <div class="row ml-5">
-            <p class="ml-5 small text-secondary">Posted on <em>{{ post.date }}</em></p>
+        <div class="row">
+            <p class="ml-auto mr-auto small text-secondary">Posted on <em>{{ post.date }}</em></p>
         </div>
 
         <div class="row">

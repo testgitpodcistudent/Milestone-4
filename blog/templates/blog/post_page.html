@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mb-3">
+
+    <!-- "Back" button, redirects browser to previous page-->
+    <a class="btn btn-light rounded-0 mt-2" href="{% url 'view_blog' %}"><i class="fas fa-chevron-left mr-2"></i>
+        Back to All Posts</a>
+
+    <div class="box-element pt-3 pb-3 text-center">
+        <div class="row mt-2">
+            <h4 class="ml-auto mr-auto">{{ post.title }}</h4>
+        </div>
+        <div class="row">
+            <p class="ml-auto mr-auto small text-secondary">Posted on <em>{{ post.date }}</em></p>
+        </div>
+
+        {% if user.is_superuser %}
+        <!-- "Edit/Delete" Button -->
+        <div class="row">
+            <div class="col-12">
+                <a href="{% url 'edit_post' post.id %}" class="a btn btn-info btn-sm w-25">
+                    <i class="far fa-edit"></i> Edit
+                </a>
+                <a href="{% url 'delete_post' post.id %}" class="a btn btn-danger btn-sm w-25">
+                    <i class="far fa-trash-alt"></i> Delete
+                </a>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="row">
+            <div class="text-left pl-5 pr-5 col-9 col-sm-12 mr-auto ml-auto">
+                <p>{{ post.body|linebreaks }}</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -12,6 +12,18 @@ def view_blog(request):
     return render(request, "blog/blog.html", {"blog_posts": blog_posts, })
 
 
+def post_page(request, post_id):
+    """display individual product detail page"""
+
+    post = get_object_or_404(Post, pk=post_id)
+
+    context = {
+        "post": post,
+    }
+
+    return render(request, "blog/post_page.html", context)
+
+
 @login_required
 def create_post(request):
     """Add a post to the blog"""
@@ -24,10 +36,7 @@ def create_post(request):
         if form.is_valid():
             blog_post = form.save()
             messages.success(request, "Post added successfully!")
-            blog_posts = Post.objects.all().order_by('-date')
-
-            return render(request, "blog/blog.html",
-                          {"blog_posts": blog_posts, })
+            return redirect(reverse("post_page", args=[blog_post.id]))
         else:
             messages.error(
                 request, "Failed to add post. \
