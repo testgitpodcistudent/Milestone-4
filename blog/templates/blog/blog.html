@@ -4,9 +4,22 @@
 {% block content %}
 <div class="container mb-3">
 
-    {% for blog_post in blog_posts %}
+    {% for post in blog_posts %}
     <div class="box-element pt-3 pb-3 text-center">
-        <h4>{{ blog_post.title }}</h4>
+        <h4>{{ post.title }}</h4>
+        {% if user.is_superuser %}
+        <!-- "Edit/Delete" Button -->
+        <div class="row">
+            <div class="col-12">
+                <a href="" class="a btn btn-info btn-sm w-25">
+                    <i class="far fa-edit"></i> Edit
+                </a>
+                <a href="{% url 'delete_post' post.id %}" class="a btn btn-danger btn-sm w-25">
+                    <i class="far fa-trash-alt"></i> Delete
+                </a>
+            </div>
+        </div>
+        {% endif %}
     </div>
     {% endfor %}
 
