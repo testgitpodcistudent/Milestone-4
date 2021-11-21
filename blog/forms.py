@@ -7,6 +7,7 @@ class BlogForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = "__all__"
+        exclude = ('author',)
 
     image = forms.ImageField(
         label="Image", required=True, widget=CustomClearableFileInput
