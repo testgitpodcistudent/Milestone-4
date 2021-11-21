@@ -12,6 +12,7 @@
     {{ widget.input_text }}
 {% endif %}
 <span class="btn btn-black rounded-0 btn-file">
-    Select Image <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+    <div class="small">Select a thumbnail image to appear beside your blog post.</div>
+    <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
 </span>
 <strong><p class="text-danger" id="filename"></p></strong>
