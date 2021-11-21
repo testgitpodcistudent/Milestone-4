@@ -23,7 +23,7 @@ def create_post(request):
         if form.is_valid():
             blog_post = form.save()
             messages.success(request, "Post added successfully!")
-            blog_posts = Post.objects.all()
+            blog_posts = Post.objects.all().order_by('-date')
 
             return render(request, "blog/blog.html", {"blog_posts": blog_posts, })
         else:
