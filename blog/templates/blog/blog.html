@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
-
 {% block content %}
+<div class="container mb-3">
 
+    {% for blog_post in blog_posts %}
+    <div class="box-element pt-3 pb-3 text-center">
+        <h4>{{ blog_post.title }}</h4>
+    </div>
+    {% endfor %}
+
+</div>
 {% endblock %}
