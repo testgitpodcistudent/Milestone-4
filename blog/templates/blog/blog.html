@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container mb-3">
     {% if user.is_superuser %}
-    <div class="container mt-3">
+    <div class="container card p-1 mt-3">
         <div class="row align-items-center">
             <div class="col-6 text-center small">Create a new post as <strong>{{ user }}</strong>: </div>
             <div class="col-6"><a href="{% url 'create_post' %}" class="a btn btn-success btn-sm w-75">
@@ -14,22 +14,18 @@
     </div>
     {% endif %}
 
+    {% if blog_posts %}
     {% for post in blog_posts %}
     <div class="box-element pt-3 pb-3 text-center">
         <div class="row ml-5 mt-2">
             <h4 class="ml-3">{{ post.title }}</h4>
         </div>
         <div class="row ml-5">
-            <p class="ml-5 small text-secondary">by <strong>{{ post.author }}</strong> on <em>{{ post.date }}</em></p>
+            <p class="ml-5 small text-secondary">Posted on <em>{{ post.date }}</em></p>
         </div>
 
         <div class="row">
-            <div class="col-3 col-s-12">
-                <img class="thumbnail mt-1 mb-1" src="{{ post.imageURL }}" alt="{{ post.name }}" onerror="this.onerror=null; 
-                        this.src='{% static 'images/noimage.png' %}'">
-            </div>
-
-            <div class="col-9 col-s-12 mt-5">
+            <div class="col-9 col-sm-12 mr-auto ml-auto">
                 <p>{{ post.body|slice:255 }} [<strong>...</strong>]</p>
                 <div class="right text-right">
                     <a href="" class="small right text-right mr-3">Continue reading <i class="fas fa-chevron-right"></i></a>
@@ -37,12 +33,11 @@
             </div>
         </div>
 
-
         {% if user.is_superuser %}
         <!-- "Edit/Delete" Button -->
         <div class="row">
-            <div class="col-8">
-                <a href="" class="a btn btn-info btn-sm w-25">
+            <div class="col-12">
+                <a href="{% url 'edit_post' post.id %}" class="a btn btn-info btn-sm w-25">
                     <i class="far fa-edit"></i> Edit
                 </a>
                 <a href="{% url 'delete_post' post.id %}" class="a btn btn-danger btn-sm w-25">
@@ -53,6 +48,11 @@
         {% endif %}
     </div>
     {% endfor %}
+    {% else %}
+    <div class="container mt-5 text-center">
+        <p>No blog posts to display.</p>
+    </div>
+    {% endif %}
 
 </div>
 {% endblock %}
