@@ -55,4 +55,4 @@ def delete_post(request, post_id):
 
     blog_posts = Post.objects.all()
 
-    return render(request, "blog/blog.html", {"blog_posts": blog_posts, })
+    return redirect(reverse("view_blog"))

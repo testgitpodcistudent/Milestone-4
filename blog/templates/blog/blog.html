@@ -3,10 +3,26 @@
 
 {% block content %}
 <div class="container mb-3">
+{% if user.is_superuser %}
+<div class="container mt-3">
+    <div class="row align-items-center">
+        <div class="col-6 text-center small">Create a new post as <strong>{{ user }}</strong>: </div>
+        <div class="col-6"><a href="{% url 'create_post' %}" class="a btn btn-success btn-sm w-75">
+            <i class="fas fa-pen-square"></i> New Post
+        </a></div>
+    </div>
+</div>
+{% endif %}
 
     {% for post in blog_posts %}
     <div class="box-element pt-3 pb-3 text-center">
         <h4>{{ post.title }}</h4>
+
+        <img class="thumbnail mt-1 mb-1" src="{{ post.imageURL }}" alt="{{ post.name }}" onerror="this.onerror=null; 
+                        this.src='{% static 'images/noimage.png' %}'">
+
+        <p>{{ post.body|slice:255 }} [<strong>...</strong>]</p>
+
         {% if user.is_superuser %}
         <!-- "Edit/Delete" Button -->
         <div class="row">
