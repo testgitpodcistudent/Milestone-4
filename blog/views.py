@@ -25,7 +25,8 @@ def create_post(request):
             messages.success(request, "Post added successfully!")
             blog_posts = Post.objects.all().order_by('-date')
 
-            return render(request, "blog/blog.html", {"blog_posts": blog_posts, })
+            return render(request, "blog/blog.html",
+                          {"blog_posts": blog_posts, })
         else:
             messages.error(
                 request, "Failed to add post. \
