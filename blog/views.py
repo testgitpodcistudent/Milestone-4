@@ -1,15 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from .forms import BlogForm
-from django.views.generic import ListView, DetailView
 from .models import Post
+from django.contrib import messages
 
 
 def view_blog(request):
     blog_posts = Post.objects.all()
 
-
-    return render(request, "blog/blog.html", {"blog_posts":blog_posts,})
+    return render(request, "blog/blog.html", {"blog_posts": blog_posts, })
 
 
 @login_required
