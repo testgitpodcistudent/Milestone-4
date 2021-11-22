@@ -34,6 +34,7 @@
         <div class="container mt-3 bg-secondary" style="background-image: url('{{ post.imageURL }}');
                 background-position: center;
                 background-blend-mode:color-burn;
+                background-size: cover;
                 border-radius:15px;">
             <img src="{{ post.imageURL }}" alt="{{ post.title }} (blog post image)" class="blog-post-image">
         </div>
@@ -41,7 +42,7 @@
 
         <div class="row">
             <div class="text-left pl-4 pr-4 col-12 col-sm-12 mr-auto ml-auto">
-                <p>{{ post.body|linebreaks }}</p>
+                <p>{{ post.body|linebreaks }}
             </div>
         </div>
 
@@ -57,17 +58,18 @@
                 <!--Display Comments-->
                 <div class="media-list">
                     {% for comment in post_comments %}
-                    <div class="card col-12 mt-1 mb-1">
+                    <div class="card p-1 col-12 mt-1 mb-1">
                         <div class="row">
-                            <div class="col-3">
-                                <img class="comment-avatar mr-4"
-                                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png">
+                            <div class="col-2">
+                                <img class="comment-avatar rounded-circle border border-secondary mr-4"
+                                    src="{% static 'images/user-profile-placeholder.png' %}"
+                                    alt="User profile image">
                             </div>
-                            <div class="col-9">
+                            <div class="col-10">
                                 <div class="media-body">
                                     <div class="small-1">
                                         <strong class="mr-1">{{comment.user}}</strong> <span class="small">posted
-                                            on</span> <time class="ml-1 opaciy-70 small-3"> {{comment.date}}</time>:
+                                            on</span> <span class="ml-1 opaciy-70 small-3"> {{comment.date}}</span>:
                                     </div>
                                     <p><em>{{comment.content}}</em></p>
                                 </div>
