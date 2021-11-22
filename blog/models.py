@@ -28,4 +28,4 @@ class Comment(models.Model):
     content = models.TextField(max_length=250)
 
     def __str__(self):
-        return self.user.username + ': "' + self.content[0:35] + '" (' + str(self.date) + ')'
+        return self.user.username + ': "' + self.content[0:35]

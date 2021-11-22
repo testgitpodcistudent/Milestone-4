@@ -3,13 +3,13 @@ from django.contrib.auth.decorators import login_required
 from .forms import BlogForm, CommentForm
 from .models import Post, Comment
 from django.contrib import messages
-from django.contrib.auth.models import User
 
 
 def view_blog(request):
     blog_posts = Post.objects.all()
 
     return render(request, "blog/blog.html", {"blog_posts": blog_posts, })
+
 
 @login_required()
 def post_page(request, post_id):
@@ -106,7 +106,5 @@ def delete_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     post.delete()
     messages.success(request, "Post deleted!")
-
-    blog_posts = Post.objects.all()
 
     return redirect(reverse("view_blog"))
