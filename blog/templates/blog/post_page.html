@@ -30,8 +30,17 @@
         </div>
         {% endif %}
 
+        {% if post.image %}
+        <div class="container mt-3 bg-secondary" style="background-image: url('{{ post.imageURL }}');
+                background-position: center;
+                background-blend-mode:color-burn;
+                border-radius:15px;">
+            <img src="{{ post.imageURL }}" class="blog-post-image">
+        </div>
+        {% endif %}
+
         <div class="row">
-            <div class="text-left pl-5 pr-5 col-9 col-sm-12 mr-auto ml-auto">
+            <div class="text-left pl-4 pr-4 col-12 col-sm-12 mr-auto ml-auto">
                 <p>{{ post.body|linebreaks }}</p>
             </div>
         </div>

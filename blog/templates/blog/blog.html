@@ -26,11 +26,20 @@
             <p class="ml-auto mr-auto small text-secondary">Posted on <em>{{ post.date }}</em></p>
         </div>
 
+        {% if post.image %}
+        <div class="container mt-3 w-50 bg-secondary" style="background-image: url('{{ post.imageURL }}');
+                background-position: center;
+                background-blend-mode:color-burn;
+                border-radius:15px;">
+            <img src="{{ post.imageURL }}" class="blog-post-image">
+        </div>
+        {% endif %}
+
         <div class="row">
-            <div class="col-9 col-sm-12 mr-auto ml-auto">
-                <p>{{ post.body|slice:255 }} [<strong>...</strong>]</p>
-                <div class="right text-right">
-                    <a href="" class="small right text-right mr-3">Continue reading <i
+            <div class="col-12 text-left col-sm-12 mt-2 mr-auto ml-auto">
+                <p>{{ post.body|slice:355 }} [<strong>...</strong>]</p>
+                <div class="right text-right mb-2">
+                    <a href="{% url 'post_page' post.id %}" class="small right text-right mr-3">Continue reading <i
                             class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
