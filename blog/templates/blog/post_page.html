@@ -39,13 +39,13 @@
     </div>
 </div>
 
-<!--comments-->
+<!--Comment Section-->
 <div class="section ">
     <div class="container">
         <h5>Comments({{post_comments_count}})</h5>
         <div class="row ">
             <div class="col-12 mx-auto ">
-                <!--display coment-->
+                <!--Display Comments-->
                 <div class="media-list">
                     {% for comment in post_comments %}
                     <div class="card col-12 mt-1 mb-1">
@@ -57,8 +57,8 @@
                             <div class="col-9">
                                 <div class="media-body">
                                     <div class="small-1">
-                                        <b> {{comment.user}}</b>
-                                        <time class="ml-4 opaciy-70 small-3"> {{comment.date}}</time>
+                                        <strong class="mr-1">{{comment.user}}</strong> <span class="small">posted
+                                            on</span> <time class="ml-1 opaciy-70 small-3"> {{comment.date}}</time>:
                                     </div>
                                     <p><em>{{comment.content}}</em></p>
                                 </div>
@@ -67,13 +67,13 @@
                     </div>
                     {% endfor %}
                 </div>
-                <!--display the form-->
+                <!--Display comment form -->
                 <form method="POST" action="{% url 'post_page' post_id=post.id %}">
                     {% csrf_token %}
                     <div class="form-group">
                         {{form | crispy}}
                     </div>
-                    <button class="btn btn-primary btn-block " type="submit">Comment</button>
+                    <button class="btn btn-primary btn-block mb-2" type="submit">Comment</button>
                 </form>
             </div>
         </div>

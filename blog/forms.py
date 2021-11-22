@@ -24,7 +24,7 @@ class CommentForm(forms.ModelForm):
     content = forms.CharField(widget=forms.Textarea(attrs={
         'class': 'md-textarea form-control',
         'placeholder': 'Type your comment..',
-        'rows': '4',
+        'rows': '3',
     }), label=False)
 
     class Meta:
