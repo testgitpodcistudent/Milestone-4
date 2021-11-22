@@ -27,16 +27,16 @@
         </div>
 
         {% if post.image %}
-        <div class="container mt-3 w-50 bg-secondary" style="background-image: url('{{ post.imageURL }}');
+        <div class="container w-50 bg-secondary" style="background-image: url('{{ post.imageURL }}');
                 background-position: center;
                 background-blend-mode:color-burn;
                 border-radius:15px;">
-            <img src="{{ post.imageURL }}" class="blog-post-image">
+            <img src="{{ post.imageURL }}" alt="{{ post.title }} (blog post image)" class="blog-post-image">
         </div>
         {% endif %}
 
         <div class="row">
-            <div class="col-12 text-left col-sm-12 mt-2 mr-auto ml-auto">
+            <div class="col-12 text-left col-sm-12 mt-3 mr-auto ml-auto">
                 <p>{{ post.body|slice:355 }} [<strong>...</strong>]</p>
                 <div class="right text-right mb-2">
                     <a href="{% url 'post_page' post.id %}" class="small right text-right mr-3">Continue reading <i
