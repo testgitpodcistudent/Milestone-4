@@ -131,10 +131,21 @@ The site's structure consists of
 - **Messages** display a short message to the user confirming actions such as cart updates, product deletions, login actions etc.
     ![Messages](/static/readme-assets/message.png)
 
-## **Developer Notes**
-- If you encounter the following error at any point running terminal commands in local deployment: ``` django.db.utils.OperationalError: FATAL:  role "qwmrksyzdlafcq" does not exist ``` , running ``` unset PGHOSTADDR ``` and re-trying the previous command will allow you to continue.
+<hr>
+<hr>
 
-- Ensure your IDE Python linter is set to _flake8_, or you may encounter false errors related to object models not existing.
+## **Developer Notes**
+- **N.B.**: There are 4 lines in *settings.py* which are resulting in PEP8 compliancy issues (Lines 147, 150, 153 and 156). This is default Django-generated code, and any attempt to break these lines for PEP8 compliancy results in errors throughout the site on authentication pages (such as registration and login).    
+Attempts have been made to split these lines using: 
+
+    - Parentheses, with and without commas and additional quotation marks   
+
+    - Backslashes   
+
+    All attempts resulted in either terminal (EOL on string literal), or Django (unexpected tuple) errors even if PEP8 compliant. Multiple developers, including my CI mentor, have advised me to leave these lines unbroken.
+
+- If you encounter the following error at any point running terminal commands in local deployment: ``` django.db.utils.OperationalError: FATAL:  role "qwmrksyzdlafcq" does not exist ``` , running ``` unset PGHOSTADDR ``` in the terminal and re-trying the previous command will allow you to continue.
+
 
 ## **Known Bugs** 
 - As of present, no critical bugs are present in the site.  

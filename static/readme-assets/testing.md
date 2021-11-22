@@ -34,7 +34,7 @@ However, these functions are called on using buttons related to event triggers i
 Deployed versions of each page in the project have been tested against the (Nu Html Checker)[https://validator.w3.org/nu/?doc=https%3A%2F%2Ftechzone-ms4.herokuapp.com%2F] returning no errors. 
 Warnings are returned on several pages regarding unnecessary ```type``` attributes for JavaScript files, but due to time constraints a development decision was made not to correct these. In future developments, these warnings can be rectified, but do not affect the function of the site.
 
-[⇧ Back to Top](#table-of-contents)
+[⇧ Back to Top](#deployment)
 
 <hr>
 <hr>
@@ -93,15 +93,7 @@ Each of the user stories was used as a starting point to test features on the si
 
     ✔ Previous orders can be viewed on the _My Account_ page.
 
-[⇧ Back to Top](#table-of-contents)
+[⇧ Back to Top](#deployment)
 
 <hr>
 <hr>
-
-# Feedback 
-
-The site was shown to peers and fellow developers who were encouraged to interact with the site and provide their feedback. Overall response from users was positive and no critical bugs were encountered. 
-
-My [CodeInstitute](http://www.codeinstitute.net/) mentor, Arnold Kyeza, returned constructive feedback and advice at multiple stages throughout the project.
-
-[⇧ Back to Top](#table-of-contents)
