@@ -119,13 +119,24 @@ The site's structure consists of
 **Developer Notes**
 - If you encounter the following error at any point running terminal commands in local deployment: ``` django.db.utils.OperationalError: FATAL:  role "qwmrksyzdlafcq" does not exist ``` , running ``` unset PGHOSTADDR ``` and re-trying the previous command will allow you to continue.
 
-- Ensure your IDE Python linter is set to _flake8_, or you will encounter false errors related to object models not existing.
+- Ensure your IDE Python linter is set to _flake8_, or you may encounter false errors related to object models not existing.
 
-- Some files have PEP8 compliancy errors, specifically "Line too long" errors. A development decision has been made to ignore these warning as fixing them has caused bugs.
+**Known Bugs** 
+- As of present, no critical bugs are present in the site.  
+A previous version of the project returned would return *500 Server Error* upon loading *products.html* pages when attempting to show products that did not have an image file uploaded when created.   
+This has been remedied by making the *Upload Image* field required on the *Add Product* page. However, a backend fix should be implemented in future versions in case a *product* object has its *image* property removed by accident.
 
-<hr>
+**Future Features**
+- At present, individual *Blog* posts can only be viewed by users who are logged-in.    
+This is to prevent an error which occurs when a guest user attempts to post a comment. While this fix is functional, it is not ideal; individual *Blog* posts should be viewable by guest users.   
+In future developments, a workaround could be developed where the *Comment* form is hidden to guest users, and a prompt displayed in its place asking them to login.
 
-## Future Features
+- *Pagination* is an important feature on sites where pages display lists or multiple entries of objects.   
+Since this project includes both *Products* list pages and *Blog post* list pages, pagination would be a vital feature if the amount of products and blog posts increases to the point where the browsing experience of the user becomes slow or tedious.
+
+- Currently, the avatar images displayed next to *blog comments* are placeholders. In future developments, users should be given the option to upload a profile picture; this can then be rendered alongside their blog comment.
+
+- Social media *Share* buttons should be added to *Products* and *Blog posts* pages to allow the users to easily share them via social media or messaging apps.
 
 - A live chat which would allow the user to correspond with the site team in real time to solve customer queries.
 
