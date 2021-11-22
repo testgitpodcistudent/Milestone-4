@@ -131,6 +131,14 @@ The site's structure consists of
 - **Messages** display a short message to the user confirming actions such as cart updates, product deletions, login actions etc.
     ![Messages](/static/readme-assets/message.png)
 
+- **Blog** accessible through the *Blog* link in the main navbar, allows the user to view a list of blog posts. Individual posts can be viewed once logged in by clicking "Continue Reading" or by clicking the post title.
+
+- **Add Post** on the *Blog* section is visible only to admin users and allows them to add a new blog post using an intuitive webform.
+
+- **Edit/Delete** post buttons on each post in the *Blog* section, visible and functional only for admin users, allow for existing posts to be both edited and deleted.
+
+- **Comments** sections at the bottom of individual blog posts allow logged-in users to post comments using a simple form. These comments can be deleted by the admin user in the *Django Admin* panel.
+
 <hr>
 <hr>
 
