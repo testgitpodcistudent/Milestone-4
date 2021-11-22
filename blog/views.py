@@ -6,7 +6,7 @@ from django.contrib import messages
 
 
 def view_blog(request):
-    blog_posts = Post.objects.all()
+    blog_posts = Post.objects.all().order_by('-date')
 
     return render(request, "blog/blog.html", {"blog_posts": blog_posts, })
 
