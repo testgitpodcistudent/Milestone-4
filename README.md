@@ -1,5 +1,5 @@
 ![Logo](/static/readme-assets/logo-readme.png)
-# Full-Stack Project | e-Commerce Website
+# Full-Stack Project | e-Commerce Website & Blog
 
 # Table of Contents
 
@@ -12,6 +12,8 @@
     * [Colours](#colours)
 3. [Features](#existing-features)
     * [Existing Features](#existing-features)
+    * [Known Bugs](#known-bugs)
+    * [Developer Notes](#existing-features)
     * [Future Features](#future-features)
 4. [Technologies Used](#technologies-used)
     * [Django](#django)
@@ -29,7 +31,9 @@
 
 ## Overview
 
-TechZone is an e-commerce website featuring user registration, login, product management, and providing customers with the ability to place online orders and pay for them using the Stripe checkout platform.
+TechZone is an e-commerce website featuring user *registration, login, product management,* and providing customers with the ability to place online *orders* and *checkout*/pay for them using the Stripe checkout platform.
+
+The site also features a *Blog* section which allows logged-in users to read and *comment* on articles posted by the site administrator.
 
 The website is fully responsive, utilizing simple and colourful design language and an intuitive information structure.
 This project was built as part of the [CodeInstitute](https://codeinstitute.net/) Full-Stack Software Development course purely for educational purposes.
@@ -48,22 +52,33 @@ This project was built as part of the [CodeInstitute](https://codeinstitute.net/
 * Allow the end user to search products by search term, sort by price and other factors, and view products based on category.
 * Provide links to social media pages run by the site owner.
 * Create an easy-to-use contact form for customers or potential customers to send messages to the site owner.
+* Create a simple blog system which allows the *administrator* to *add, edit* and *delete* blog posts.
+* Create a simple *comments* section which allows logged-in users to post comments on *blog* posts.
 
 <hr> 
 
 ## User Stories
 1. As a _site administrator_, I want to upload products to the site for the _end-user_ to view and purchase. I want to be able to edit and delete these products if needed.
-2. As a _site administrator_, I want to sort the products into separate categories for ease of browsing.
+2. As a _site administrator_, I want to categorise products for ease of management and end-user browsing.
 3. As a _site administrator_, I want to ensure that only I can alter the content of the website.
-4. As an _end-user_, I want to browse products relevant to me; including searching through them using search terms, sort by price, and view items in specific relevant categories.
-5. As an _end-user_, I want to send an e-mail to the site owner about an order (or potential order).
+4. As a _site administrator_, I want to post reviews, news and opinion pieces on subject matter related to the site.
+5. As an _end-user_, I want to browse products relevant to me; including searching through them using search terms, sort by price, and view items in specific relevant categories.
+6. As an _end-user_, I want to be able to add multiple items to my *cart* and *checkout* for them with one payment.
+7. As an _end-user_, I want to send an e-mail to the site owner about an order (or potential order).
+8. As an _end-user_, I want to leave comments on the site's *Blog* posts to share my thoughts on the post.
+9. As an _end-user_, I want to receive a confirmation e-mail when I place an order, so I know that my order has been received.
    
 ### How does the website function to meet the needs of the user, as described in the user stories?
 1. The _Add New product_, _Edit_ and _Delete_ functions enable the administrator to fulfill these Create, Update and Delete functions.
-2. The site requires administrator _authentication_ to reveal the administrator features. This is done on the _"Admin Login"_ page.
-3. The homepage displays all products on the site. The searchbar allows users to search products using a search term. The category links (_All Products, Laptops, Phones, Tablets_) allow users to view by category. The _Sort Products_ dropdown allows users to sort relevant products via different factors including cost.
+2. The *Category* database model allows *Product* database objects to be sorted into separate categories.
+3. The site requires administrator _authentication_ to reveal the administrator features such as adding, editing and deleting products and blog posts. When a user is signed in as a Django *superuser*, these options are presented throughout the site.
+4. The *Blog* app allows admin users to add, edit and delete blog posts. 
+5. The *All Products* page displays all products on the site. The searchbar allows users to search products using a search term. The category links (_All Products, Laptops, Phones, Tablets_) allow users to view products by category. The _Sort Products_ dropdown allows users to sort relevant products via different factors including price.
     A preview of the products is shown; when clicked, the user is directed to the full product page.
-4. The *Contact Us* link on the footer of each page directs the user to a functional Contact form which sends an e-mail to the site administrator's inbox.
+6. On individual product pages, users can click "*Add to Cart*" to add the product shown to their cart. A prompt is then shown, displaying the items in the user's cart, and giving them an option to *Checkout*. The Checkout process is easy and intuitive, and can be completed by users whether they are logged in or not.
+7. The *Contact Us* link on the footer of each page directs the user to a functional Contact form which sends an e-mail to the site administrator's inbox.
+8. Each *Blog* post page has a comment section at the bottom, which displays existing user comments and allows logged-in users to post new comments.
+9. When a user completes the *Checkout* process, an order is created in the database and a confirmation e-mail is sent to the user.
 
 [⇧ Back to Top](#table-of-contents)
 
@@ -90,7 +105,7 @@ The colours used throughout the site are primarily the default BootStrap element
 <hr>
 <hr>
 
-# Existing Features
+## **Existing Features**
 The site's structure consists of
 - **Homepage** Basic landing page with splash image and call-to-action button which leads to the main product page.
 - **User registration**, fully functional and requiring the user to confirm their e-mail address by clicking a link which is emailed to them.
@@ -116,17 +131,17 @@ The site's structure consists of
 - **Messages** display a short message to the user confirming actions such as cart updates, product deletions, login actions etc.
     ![Messages](/static/readme-assets/message.png)
 
-**Developer Notes**
+## **Developer Notes**
 - If you encounter the following error at any point running terminal commands in local deployment: ``` django.db.utils.OperationalError: FATAL:  role "qwmrksyzdlafcq" does not exist ``` , running ``` unset PGHOSTADDR ``` and re-trying the previous command will allow you to continue.
 
 - Ensure your IDE Python linter is set to _flake8_, or you may encounter false errors related to object models not existing.
 
-**Known Bugs** 
+## **Known Bugs** 
 - As of present, no critical bugs are present in the site.  
 A previous version of the project returned would return *500 Server Error* upon loading *products.html* pages when attempting to show products that did not have an image file uploaded when created.   
 This has been remedied by making the *Upload Image* field required on the *Add Product* page. However, a backend fix should be implemented in future versions in case a *product* object has its *image* property removed by accident.
 
-**Future Features**
+## **Future Features**
 - At present, individual *Blog* posts can only be viewed by users who are logged-in.    
 This is to prevent an error which occurs when a guest user attempts to post a comment. While this fix is functional, it is not ideal; individual *Blog* posts should be viewable by guest users.   
 In future developments, a workaround could be developed where the *Comment* form is hidden to guest users, and a prompt displayed in its place asking them to login.
