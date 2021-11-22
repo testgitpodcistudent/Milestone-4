@@ -20,8 +20,6 @@
     * [Software](#software)
     * [Additional Tools](#additional-tools)
 5. [Deployment](#deployment)
-    * [GitPod Deployment](#gitpod-deployment)
-    * [Heroku](#heroku)
 6. [Testing](#testing)
 7. [Credits](#credits)
     * [Acknowledgements](#acknowledgements)
@@ -175,7 +173,7 @@ The website's payment system is built using [Stripe](https://stripe.com/en-ie).
 
 # Deployment 
 
-[Click here](/static/readme-assets/deployment.md) to view the Testing.md file.
+[Click here](/static/readme-assets/deployment.md) to view the *Deployment.md* file.
 
 [⇧ Back to Top](#table-of-contents)
 
@@ -183,7 +181,7 @@ The website's payment system is built using [Stripe](https://stripe.com/en-ie).
 <hr>
 
 # Testing
-[Click here](/static/readme-assets/testing.md) to view the Testing.md file.
+[Click here](/static/readme-assets/testing.md) to view the *Testing.md* file.
 
 <hr>
 <hr>
