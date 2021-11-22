@@ -126,10 +126,12 @@ WSGI_APPLICATION = "techzone.wsgi.application"
 #     }
 # }
 
+# Connect to postgres
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
+# Or else connect to sqlite3
 else:
     DATABASES = {
         'default': {
