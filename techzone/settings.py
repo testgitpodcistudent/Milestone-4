@@ -152,12 +152,10 @@ AUTH_PASSWORD_VALIDATORS = [
                  'dation.MinimumLengthValidator',)
     },
     {
-        'NAME': ('django.contrib.auth.password_vali'
-                 'dation.CommonPasswordValidator',)
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'
     },
     {
-        'NAME': ('django.contrib.auth.password_validatio'
-                 'n.NumericPasswordValidator',)
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'
     },
 ]
 
