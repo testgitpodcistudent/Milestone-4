@@ -41,8 +41,7 @@ Warnings are returned on several pages regarding unnecessary ```type``` attribut
 
 # User Stories
 
-Each of the user stories was used as a starting point to test each of the features on the site, and ensure that they are accessible and work correctly.
-These were tested on both mobile and desktop resolutions.
+Each of the user stories was used as a starting point to test features on the site.
 
 1. **As a _site administrator_, I want to upload products to the site for the _end-user_ to view and purchase. I want to be able to edit and delete these products if needed.**
     

@@ -189,9 +189,14 @@ The website's payment system is built using [Stripe](https://stripe.com/en-ie).
 <hr>
 
 # Credits
-The skills learnt in the [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/8486523459273dddf96932a4ae19dd9a83af679d) project on the [CodeInstitute](https://codeinstitute.net/) Full-Stack Software Development course are the basis for this project, and significant code and logic from the Boutique Ado source code is present in this project.
+- The skills learnt in the [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/8486523459273dddf96932a4ae19dd9a83af679d) project as part of the [CodeInstitute](https://codeinstitute.net/) Full-Stack Software Development course are the basis for this project, and significant code and logic from the Boutique Ado source code is present.
 
-All images used are royalty free from [Pexels](https://www.pexels.com/license/) and [Unsplash](https://unsplash.com/license) and used within the confines of their respective licenses. 
+- Selmi Abderrahim's [tutorial](https://selmiabderrahim.medium.com/add-comment-model-to-your-django-blog-website-2020-9a13abfc3c0f) on building comment sections.
+Modified HTML & Python code from this tutorial was used as the groundwork for the Blog app's comment system.
+
+- All images used are royalty free from [Pexels](https://www.pexels.com/license/) and [Unsplash](https://unsplash.com/license) and used within the confines of their respective licenses. 
+
+- Articles from [Copyright Free Content](https://www.copyrightfreecontent.com/) are used as mockup content for the site's Blog app. 
 
 [⇧ Back to Top](#table-of-contents)
 
@@ -200,6 +205,8 @@ All images used are royalty free from [Pexels](https://www.pexels.com/license/) 
 
 ## Acknowledgements
 
-- A big thanks to CodeInstitute Student Support, Tutor Support and my mentor Arnold Kyeza for his support throughout all my projects.
+- CodeInstitute Student Support & Tutor Support.
+- CodeInstitute mentors Arnold Kyeza & Chris Quinn for their feedback throughout this project.
+- Zehra Ismail for testing the site as a third-party and giving feedback on the project.
 
 [⇧ Back to Top](#table-of-contents)
