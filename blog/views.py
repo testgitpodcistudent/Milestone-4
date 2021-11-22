@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import BlogForm
-from .models import Post
+from .forms import BlogForm, CommentForm
+from .models import Post, Comment
 from django.contrib import messages
 from django.contrib.auth.models import User
 
@@ -11,14 +11,25 @@ def view_blog(request):
 
     return render(request, "blog/blog.html", {"blog_posts": blog_posts, })
 
-
+@login_required()
 def post_page(request, post_id):
     """display individual product detail page"""
+    form = CommentForm(request.POST)
+    if form.is_valid():
+        post = get_object_or_404(Post, pk=post_id)
+        form.instance.user = request.user
+        form.instance.post = post
+        form.save()
+        return redirect(reverse("post_page", args=[post.id]))
 
     post = get_object_or_404(Post, pk=post_id)
-
+    post_comments_count = Comment.objects.all().filter(post=post.id).count()
+    post_comments = Comment.objects.all().filter(post=post.id)
     context = {
-        "post": post,
+        'post': post,
+        'form': form,
+        'post_comments': post_comments,
+        'post_comments_count': post_comments_count,
     }
 
     return render(request, "blog/post_page.html", context)

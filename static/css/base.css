@@ -150,6 +150,11 @@ a:hover {
     border-radius: 5px;
 }
 
+.comment-avatar {
+    width:90px;
+    height:90px;
+}
+
 .btn-group-xs>.btn,
 .btn-xs {
     padding: .25rem .4rem;

@@ -1,6 +1,6 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Post
+from .models import Post, Comment
 
 
 class BlogForm(forms.ModelForm):
@@ -18,3 +18,15 @@ class BlogForm(forms.ModelForm):
 
         for field_name, field in self.fields.items():
             field.widget.attrs["class"] = "border-black rounded-0"
+
+
+class CommentForm(forms.ModelForm):
+    content = forms.CharField(widget=forms.Textarea(attrs={
+        'class': 'md-textarea form-control',
+        'placeholder': 'Type your comment..',
+        'rows': '4',
+    }), label=False)
+
+    class Meta:
+        model = Comment
+        fields = ('content', )
