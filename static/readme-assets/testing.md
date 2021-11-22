@@ -13,19 +13,26 @@
 
 # Code Validators
 ## Python
-* All Python files are PEP8 compliant with a few exceptions. In any case where a PEP8 "Line too long" error is present, this has been left so intentionally as splitting the line causes major development issues.
+* All Python files are PEP8 compliant, with no errors. All *.py* files in the project have been checked using the [PEP8 online](http://pep8online.com/) tool. No errors are reported by the IDE linter used in development.
 
 <hr>
 
 ## JavaScript
-* The _script.js_ file passed the [JavaScript Validator](https://beautifytools.com/javascript-validator.php) when "jQuery" option is selected, without warnings or errors.
+* *statc/js/main.js* has been passed through the [JavaScript Validator](https://beautifytools.com/javascript-validator.php) when "jQuery" option is selected, with two errors:
+
+ - ```"updateBtns' is defined but never used."```   
+ - ```"goBack' is defined but never used."```
+
+However, these functions are called on using buttons related to event triggers in the JavaScript file - therefore they are not redundant, should not be removed, and the error should be ignored.
+(```updateBtns``` is used to update cart items, and ```goBack``` is used throughout the site on multiple pages to support "*Back*" buttons).
 
 <hr>
 
 ## HTML
 [W3C HTML validator](https://validator.w3.org/nu/)
 
-* On deployed site, right-click and select "View Page Source". This is the final, rendered HTML. This HTML for each page was put through the HTML validator. Each page's HTML passed with no errors. Some warnings may be present, and a development decision has been made not to fix these at this time.
+Deployed versions of each page in the project have been tested against the (Nu Html Checker)[https://validator.w3.org/nu/?doc=https%3A%2F%2Ftechzone-ms4.herokuapp.com%2F] returning no errors. 
+Warnings are returned on several pages regarding unnecessary ```type``` attributes for JavaScript files, but due to time constraints a development decision was made not to correct these. In future developments, these warnings can be rectified, but do not affect the function of the site.
 
 [⇧ Back to Top](#table-of-contents)
 
